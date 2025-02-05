@@ -1,3 +1,17 @@
+document.getElementById("same-as-contact").addEventListener("change", function () {
+    const whatsappNumberInput = document.getElementById("whatsapp-number");
+
+    // If the checkbox is checked, hide the WhatsApp number field
+    if (this.checked) {
+        whatsappNumberInput.style.display = "none";
+        // Optionally, clear the WhatsApp number field value
+        whatsappNumberInput.value = '';
+    } else {
+        whatsappNumberInput.style.display = "block";
+    }
+});
+
+// Form submission handler
 document.getElementById("signup-form").addEventListener("submit", function (event) {
     event.preventDefault(); // Prevent form submission
 
@@ -21,7 +35,7 @@ document.getElementById("signup-form").addEventListener("submit", function (even
     }
 
     // Send data to backend (your Node.js server)
-    fetch("http://4.200.33.84:3000/signup", {
+    fetch("http://localhost:3000/signup", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
